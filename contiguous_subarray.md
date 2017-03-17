@@ -61,4 +61,28 @@ class Solution(object):
                 maxSub = max(maxSub, idx-sumDict[acc-k])
         return maxSub
  ```
+Similar to this problem
+#### Contiguous Array
+[problem description](https://leetcode.com/problems/contiguous-array/#/description)
 
+Ideas:
+- Replace '0' with '-1', so that sum of subarray with equal number of 0 and 1 is 0.
+- It becomes a special case of the above problem when k=0.
+```
+class Solution(object):
+    def findMaxLength(self, nums):
+        # Replace '0' with '-1'
+        # So that sum of subarray with euqal number of 0 and 1 is 0
+        lenth = len(nums)
+        if lenth == 0:
+            return 0
+        nnums = [i*2-1 for i in nums]
+        acc, maxSub = 0, 0
+        sumDict = {0:-1}
+        for idx in range(lenth):
+            acc += nnums[idx]
+            if not acc in sumDict:
+                sumDict[acc] = idx
+            maxSub = max(maxSub, idx - sumDict[acc])    
+        return maxSub
+```
