@@ -35,7 +35,7 @@ class Solution(object):
  [problem description](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/#/description)
  
  Ideas:
- - Sum of any contiguous subarray is equal to x<sub>2</sub> - x<sub>1</sub>
+ - Sum of any contiguous subarray is equal to x<sub>2</sub> - x<sub>1</sub>, as shown in this figure ![figure](https://github.com/cchliu/Ltcode/blob/master/ltcode_p325.png)
  - We are looking for subarray whose sum is equal to k, so we have x<sub>2</sub> - x<sub>1</sub> = k
  - Save all the "sum from left" sums into an dictionary, for each x<sub>2</sub>, looking up in the dictionary if key x<sub>1</sub> exists.
  ```
